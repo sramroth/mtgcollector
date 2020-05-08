@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+        <h1>{{ collection.title }}</h1>
+    </div>
+    <div class="content-section">
+        <table class="table table-striped">
+            <tr>
+                <th>Card Name</th>
+                <th>Set Code</th>
+                <th>Price</th>
+                <th>Foil</th>
+                <th>TCGPlayer</th>
+            </tr>
+            {% for card in collection %}
+            <tr>
+                <td>{{ card.name }}</td>
+                <td>{{ card.set }}</td>
+                <td>USD ${{ card.price }}</td>
+                <td>{{ card.foil }}</td>
+                <td><a href="https://www.tcgplayer.com/search/all/product?q={{ card.name }}">Search for {{ card.name }} on TCGPlayer</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}
+
+
